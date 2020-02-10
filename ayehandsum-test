@@ -227,8 +227,8 @@ hands=${hands}" 💪 🤳 ✍️ 🙏 🙇 🙋 🤷 🙅 🙆 🤸 🤾"
 # Required output for AyeHandSum: Base 222
 
 eval $( cat | tee \
-          >( . ~/ayehandsum |\
-             . ~/ayehandsum-decode |\
+          >( sourcefrom https://bit.ly/ayehandsum |\
+             sourcefrom https://bit.ly/ayehandsum-decode |\
              sed 's/^/tempvar1=/1'
            )\
           >( sha3sum -a 256 |\
