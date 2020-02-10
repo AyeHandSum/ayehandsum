@@ -226,20 +226,21 @@ hands=${hands}" 💪 🤳 ✍️ 🙏 🙇 🙋 🤷 🙅 🙆 🤸 🤾"
 # Output of standard SHA: Base 16
 # Required output for AyeHandSum: Base 222
 
-echo $( cat | tee \
-     >( . ~/ayehandsum |\
-        . ~/ayehandsum-decode |\
-        sed 's/^/tempvar1=/1'
+eval $( cat | tee \
+          >( . ~/ayehandsum |\
+             . ~/ayehandsum-decode |\
+             sed 's/^/tempvar1=/1'
+           )\
+          >( sha3sum -a 256 |\
+             cut -d' ' -f1 |\
+             sed 's/^/tempvar2=/1'
+           )\
+          >/dev/null
       )
-     >( sha3sum -a 256 |\
-        cut -d' ' -f1 |\
-        sed 's/^/tempvar2=/1'
-      )
-     >/dev/null)
 
 if [ "${tempvar1}" = "${tempvar2}" ]
 then
-  echo "AYEHANDSUM:TEST:SUCCESS:t1:${tempvar1}:t2:${tempvar2}"
+  echo "AYEHANDSUM:TEST:SUCCESS:t1=t2=${tempvar1}"
 else
   echo "AYEHANDSUM:TEST:FAILED:t1:${tempvar1}:t2:${tempvar2}"
 fi
