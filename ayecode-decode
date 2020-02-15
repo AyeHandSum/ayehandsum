@@ -51,7 +51,7 @@ awk '{lc=length($1); while (8>lc) {printf "0"; lc+=1}; printf $1 }'
 if [ "${AYEVERBOSE}" = "AYEAYE" ]
 then
 (
-  echo $@
+  echo options $@
   echo terms $terms
   echo algo ${algo}
   echo sysmbols $symbols

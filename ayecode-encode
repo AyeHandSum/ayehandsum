@@ -57,7 +57,7 @@ echo ""
 if [ "${AYEVERBOSE}" = "AYEAYE" ]
 then
 (
-  echo $@
+  echo options $@
   echo terms $terms
   echo algo ${algo}
   echo sysmbols $symbols
