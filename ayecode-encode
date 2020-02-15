@@ -28,7 +28,7 @@ tmpscript=$(tempfile)
 ( cntr=$(expr ${symbols} - 1)
   for m in $(cat | tr -d '#\n')
   do
-    printf "s/%4d/${m}/g;" ${cntr} | sed 's/\ /0/g; s/;/& /g'
+    printf "s/%${codewidth}d/${m}/g;" ${cntr} | sed 's/\ /0/g; s/;/& /g'
     cntr=$(expr ${cntr} - 1)
     if [ ${cntr} -lt 0 ]
     then
