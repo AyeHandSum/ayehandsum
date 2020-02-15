@@ -21,6 +21,8 @@ fi
 
 # TODO: The first parameter in 'sourcefrom' eecution is the URL - this must be accounted for in auto error checking
 
+# TODO: Allow scripts to figure out they are running under sourcefrom
+
 shift 1
 
 if [ "${1}" = "" ]
