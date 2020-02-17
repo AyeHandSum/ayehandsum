@@ -1,0 +1,66 @@
+# AYESEC:POST_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+# AYESEC:STATUTORY_HEADER
+if [ "${ayevdi_sourcefrom}" != "${HOME}/.ayevdi/ayevdi-sourcefrom" ]
+then
+  echo "AyeVDI by https://ayeai.xyz"
+  echo "Copyright (C) 2019-2020 Abhishek Choudhary, Dr Srija Katta"
+  echo ""
+  echo "NO WARRANTY, and ZERO LIABILITY (Limited to INR 1/- only)"
+  echo "Further usage of these software, artifacts or methods"
+  echo "are subject to the 'latest' license agreement avaialble at"
+  echo "https://raw.githubusercontent.com/ayeai/spl/master/LICENSE"
+  echo ""
+  echo "AyeVDI not activated. Please use the following command to"
+  echo "activate AyeVDI"
+  echo '  ayesh=$(tempfile) && wget https://bit.ly/ayevdi-sfrom-init -O${ayesh} -q && . ${ayesh}'
+  echo ""
+  exit
+fi
+# AYESEC:STATUTORY_HEADER_COMPLETED
+# AYESEC:PREV_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+
+# TODO: Let scripts decide if they're running in sourcefrom environment
+shift 1
+
+shatester=${1}
+
+formopts() {
+  prog=${1}
+  opt=${2}
+  shift 2
+  for n in $@
+  do
+    echo ${prog}#${opt}#${n} 
+  done
+}
+
+# Note: Possible test sources
+# e.g.
+#   $(wget -O- -q https://github.com/ayehandsum/ayehandsum | tr '"' '\n' | grep '^/aye')
+
+# Turn off debug messages
+AYEVERBOSE=NAY
+
+(
+for n in 'sha3sum -a 224 256 384 512 128000 256000'   \
+         'shasum  -a 1 224 256 384 512 512224 512256' \
+         'md5sum  ## ##'
+do
+  for m in $(formopts ${n})
+  do
+    for o in ayeai ayelearn ayevdi 
+    do
+      echo Testing ${m} with input = \"${o}\" | tr '#' ' ' >/dev/stderr
+      echo "time (echo ${o} | ${shatester} \"${m}\")" | tr '#' ' ' | . /dev/stdin
+    done
+  done
+done
+) |\
+tee >( grep 'SUCCESS' |\
+       tee >( echo $(wc -l) tests successful)
+     )\
+    >( grep 'FAILED' |\
+       tee >(echo $(wc -l) tests failed)
+     )\
+    >/dev/null
+
