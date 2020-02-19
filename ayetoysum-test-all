@@ -22,5 +22,5 @@ fi
 # TODO: Let scripts decide if they're running in sourcefrom environment
 # shift 1
 
-sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-test-all '. ./ayetoysum-test'
+sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-test-all https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayetoysum-test
 
