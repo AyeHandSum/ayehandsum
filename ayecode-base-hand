@@ -241,6 +241,7 @@ hands=${hands}" 💪 🤳 ✍️ 🙏 🙇 🙋 🤷 🙅 🙆 🤸 🤾"
 # Symbols (37) * Shades (6) = 222
 # Output of standard SHA: Base 16
 # Required output for AyeHandSum: Base 222
+# Note: AyeSHA takes care of symbol maths
 
 # Note: Use (total_symbols - 1) as base
 # Note: Use the last symbol as filler for missing columns on the MSB side
@@ -253,8 +254,10 @@ base=$( for n in ${hands}
             printf "\t${n}${m}"
           done
           echo ""
-        done | tee >(cat >/dev/stderr) >(tr -d '#') >/dev/null
+        done | tee >(tr -d '#') >/dev/null
       ) 
+
+# TODO: Add verbose printing of base if AYEVERBOSE=AYEAYE
 
 # TODO: Add / modify code for the verification behavior of SHAs
 # TODO: Capture the AyeHandSum transformation as a translation function
