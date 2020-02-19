@@ -46,7 +46,18 @@ do
   echo $csum | awk -vn=$n -vnb=$(expr ${symbols} - 2) '{parthex=substr($1,(n-1)*8+1,8); print "obase=" nb ";"strtonum("0x"parthex)}'
 done |\
 bc |\
-awk -vnbpp=$(expr ${symbols} - 1) -vtl=${terms} '{while(NF<tl) {printf " " nbpp " "; NF+=1}; print $0}' |\
+awk -vnbpp=$(expr ${symbols} - 1) -vtl=${terms} -vcw=${codewidth} '{ it=tl;
+                                                                     while(NF<tl) {
+                                                                       printf " %0" cw "d",nbpp;
+                                                                       NF+=1;
+                                                                       it-=1;
+                                                                     };
+                                                                     while(it>0) {
+                                                                       printf " %0" cw "d",$(tl-it);
+                                                                       it-=1;
+                                                                     };
+                                                                     print "";
+                                                                   }' |\
 tr -s ' ' |\
 sed "$(cat ${tmpscript})" |\
 tr -d '\n '
@@ -62,7 +73,7 @@ then
   echo algo ${algo}
   echo sysmbols $symbols
   echo iter $iter
-  cat ${tmpscript}
+# printf "filter "; cat ${tmpscript}
 ) | sed 's/.*/AYETOYSUM:DEBUG:&/g' >/dev/stderr
 fi
 
