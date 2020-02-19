@@ -51,7 +51,7 @@ do
     for o in ayeai ayelearn ayevdi 
     do
       echo Testing ${m} with input = \"${o}\" | tr '#' ' ' >/dev/stderr
-      echo "time (echo ${o} | ${shatester} \"${m}\")" | tr '#' ' ' | . /dev/stdin
+      echo "time (echo ${o} | sourcefrom ${shatester} \"${m}\")" | tr '#' ' ' | . /dev/stdin
     done
   done
 done
