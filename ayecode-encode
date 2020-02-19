@@ -62,6 +62,7 @@ then
   echo algo ${algo}
   echo sysmbols $symbols
   echo iter $iter
+  cat ${tmpscript}
 ) | sed 's/.*/AYETOYSUM:DEBUG:&/g' >/dev/stderr
 fi
 
