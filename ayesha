@@ -19,23 +19,45 @@ fi
 # AYESEC:STATUTORY_HEADER_COMPLETED
 # AYESEC:PREV_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
 
-# TODO: Let scripts decide whether they're in a sourcefrom environment
+# TODO: Let scripts decide whether they are in a sourcefrom environment
 shift 1
 
-# TODO: Remove positional parameters
+# TODO: Replace positional parameters
+ayeposparams=2
 
-shaop=${1}
-shatype=${2}
+shaop=${1:-encode}
+shatype=${2:-indus}
 
-shift 2
+shift ${ayeposparams}
 
 sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-base-${shatype}
 
 sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-config "$@"
 
-if [ "${shaop}" = "decode" ]
-then
-  sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-decode
-else
-  sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-encode
-fi
+case "${shaop}" in
+
+  "test-all" )
+    sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-test-all \
+               "https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha test ${shatype}"
+    ;;
+
+  "test" )
+    sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-test \
+               "https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha encode ${shatype}" \
+               "https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha decode ${shatype}"
+    ;;
+
+  "decode" )
+    sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-decode
+    ;;
+
+  "encode" )
+    sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-encode
+    ;;
+
+  * )
+    echo Unknown operation >/dev/stderr
+    ;;
+
+esac
+
