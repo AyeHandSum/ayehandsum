@@ -25,6 +25,9 @@ shift 1
 encoder=${1}
 decoder=${2}
 
+echo Testing with encoder=${encoder}
+echo Testing with decoder=${decoder}
+
 eval $( cat | tee \
           >( sourcefrom ${encoder} "${algo}" |\
              sourcefrom ${decoder} "${algo}" |\
@@ -56,5 +59,4 @@ then
   echo iter ${iter}
 ) | sed 's/.*/AYETOYSUM:DEBUG:&/g' >/dev/stderr
 fi
-
 
