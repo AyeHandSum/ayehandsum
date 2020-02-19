@@ -26,8 +26,8 @@ encoder=${1}
 decoder=${2}
 
 eval $( cat | tee \
-          >( ${encoder} "${algo}" |\
-             ${decoder} "${algo}" |\
+          >( sourcefrom ${encoder} "${algo}" |\
+             sourcefrom ${decoder} "${algo}" |\
              sed 's/^/tempvar1=/1'
            )\
           >( ${algo} |\

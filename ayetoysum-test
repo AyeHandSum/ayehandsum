@@ -24,7 +24,7 @@ sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecod
 sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-config "$@"
 
 sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-test \
-           'sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayetoysum' \
-           'sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayetoysum-decode'
+           https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayetoysum \
+           https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayetoysum-decode
 
 

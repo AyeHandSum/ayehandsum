@@ -1,0 +1,71 @@
+base=""
+base=${base}" 🙆 🙁 🙂 🙃 🙄 😀 😁 😂 😃 😄 😅 😆 😇 😈 😉 😊"
+base=${base}" 😋 😌 😍 😎 😏 😐 😑 😒 😓 😔 😕 😖 😗 😘 😙 😚"
+base=${base}" 😛 😜 😝 😞 😟 😠 😡 😢 😣 😤 😥 😦 😧 😨 😩 😪"
+base=${base}" 😫 😬 😭 😮 😯 😰 😱 😲 😳 😴 😵 😶 😷 😸 😹 😺"
+
+syms=" 🍉 🍊 🍋 🍌 🍍 🍎 🍏 🍐 🍑 🍒 🍓 🍔 🍕 🍖 🍞 🍘"
+
+cd="T C A G"
+b2=$(
+for m in ${cd}
+do
+  for n in ${cd}
+  do
+    printf " ${m}${n}\n"
+  done
+done
+)
+
+b2sym=$(s=0; for n in ${syms}; do s=$(expr ${s} + 1);echo ${b2} | awk -vn=${n} -vs=${s} '{printf "s/" $s "/" n "/g; "}'; done)
+b2dsym=$(s=0; for n in ${syms}; do s=$(expr ${s} + 1);echo ${b2} | awk -vn=${n} -vs=${s} '{printf "s/" n "/" $s "/g; "}'; done)
+
+codons=$(
+for m in ${b2}
+do
+  for n in ${cd}
+  do
+    printf " ${m}${n}\n"
+  done 
+done
+)
+
+genemo=$(s=0; for n in ${base}; do s=$(expr ${s} + 1);echo ${codons} | awk -vn=${n} -vs=${s} '{printf "s/" $s "/" n "/g; "}'; done)
+gendemo=$(s=0; for n in ${base}; do s=$(expr ${s} + 1);echo ${codons} | awk -vn=${n} -vs=${s} '{printf "s/" n "/" $s "/g; "}'; done)
+
+echo ${codons} | sed "${genemo}" | sed "${gendemo}"
+
+# Cascaded RLE 3->2->1
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}'
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}' | tr '])' '_#' | sed 's/.\{1\}/&\n/g' |  awk '/_|#/ {print $1; getline; print $1; next}/[0-9]/{r=$1;while(r>1){printf p;r-=1}next}/.*/{p=$1;printf p}' | tr -d '\n' | sed 's/\([^0-9]*\)\([0-9]*\)/\1\2\n/g' | awk -F'#' '{if(NF==1) print $1; for(i=0;i<$2;i++) print $1}' | tr -d ' \n' | sed 's/.\{3\}_[0-9]*/ & /g' | tr ' ' '\n' | awk -F'_' '{if(NF==1) print $1; for(i=0;i<$2;i++) print $1}' | tr -d '\n'
+
+# Cascaded RLE 3->2
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n'
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n' | tr '])' '_#' | sed 's/\([^0-9]*\)\([0-9]*\)/\1\2\n/g' | awk -F'#' '{if(NF==1) print $1; for(i=0;i<$2;i++) print $1}' | tr -d ' \n' | sed 's/.\{3\}_[0-9]*/ & /g' | tr ' ' '\n' | awk -F'_' '{if(NF==1) print $1; for(i=0;i<$2;i++) print $1}' | tr -d '\n'
+
+# Cascaded RLE 3->1
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}'
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}' | tr '])' '_#' | sed 's/.\{1\}/&\n/g' |  awk '/_|#/ {print $1; getline; print $1; next}/[0-9]/{r=$1;while(r>1){printf p;r-=1}next}/.*/{p=$1;printf p}' | tr -d '\n' | sed 's/.\{3\}_[0-9]*/ & /g' | tr ' ' '\n' | awk -F'_' '{if(NF==1) print $1; for(i=0;i<$2;i++) print $1}' | tr -d '\n'
+
+# RLE 3
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}"
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | sed "${genemo}" | sed 's/.\{1\}/&\n/g' | awk '/[0-9]/{r=$1;while(r>2){printf p;r-=1}next}/.*/{p=$1;printf p}' | sed 's/.\{1\}/&\n/g' | awk '/\]/{printf p;next}/.*/{p=$1;printf p}' | sed "${gendemo}"
+
+# Cascaded RLE 2->1
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}'
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}' | tr ')' '#' | sed 's/.\{1\}/&\n/g' |  awk '/#/ {print $1; getline; print $1; next}/[0-9]/{r=$1;while(r>1){printf p;r-=1}next}/.*/{p=$1;printf p}' | tr -d '\n' | sed 's/.\{2\}#[0-9]*/ & /g' | tr ' ' '\n' | awk -F'#' '{if(NF==1) print $1; for(i=0;i<$2;i++) print $1}' | tr -d ' \n'
+
+# RLE 2
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" 
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | tr -d ' ' | sed 's/.\{1\}/&\n/g' | awk '/[0-9]/{r=$1;while(r>2){printf p;r-=1}next}/.*/{p=$1;printf p}' | sed 's/.\{1\}/&\n/g' | awk '/\)/{printf p;next}/.*/{p=$1;printf p}' | sed "${b2dsym}"
+
+# RLE 1
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}'
+
+#. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}' | sed 's/.\{1\}/&\n/g' | awk '/[0-9]/{r=$1;while(r>1){printf p;r-=1}next}/.*/{p=$1;printf p}'
