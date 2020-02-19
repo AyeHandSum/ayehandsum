@@ -22,8 +22,4 @@ fi
 # TODO: Let scripts decide whether they're in a sourcefrom environment
 shift 1
 
-sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-base-toy
-
-sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-config "$@"
-
-sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayecode-encode
+sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha encode toy "$@"
