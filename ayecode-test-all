@@ -23,6 +23,7 @@ fi
 shift 1
 
 shatester=${1}
+echo Invoking SHA tester=${shatester}
 
 formopts() {
   prog=${1}
@@ -57,10 +58,11 @@ do
 done
 ) |\
 tee >( grep 'SUCCESS' |\
-       tee >( echo $(wc -l) tests successful)
+       tee >( echo $(wc -l) tests successful )\
+       >/dev/null
      )\
     >( grep 'FAILED' |\
-       tee >(echo $(wc -l) tests failed)
-     )\
-    >/dev/null
+       tee >( echo $(wc -l) tests failed )\
+       >/dev/null
+     )
 
