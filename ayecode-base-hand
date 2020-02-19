@@ -1,0 +1,492 @@
+# AYESEC:POST_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+# AYESEC:STATUTORY_HEADER
+if [ "${ayevdi_sourcefrom}" != "${HOME}/.ayevdi/ayevdi-sourcefrom" ]
+then
+  echo "AyeVDI by https://ayeai.xyz"
+  echo "Copyright (C) 2019-2020 Abhishek Choudhary, Dr Srija Katta"
+  echo ""
+  echo "NO WARRANTY, and ZERO LIABILITY (Limited to INR 1/- only)"
+  echo "Further usage of these software, artifacts or methods"
+  echo "are subject to the 'latest' license agreement avaialble at"
+  echo "https://raw.githubusercontent.com/ayeai/spl/master/LICENSE"
+  echo ""
+  echo "AyeVDI not activated. Please use the following command to"
+  echo "activate AyeVDI"
+  echo '  ayesh=$(tempfile) && wget https://bit.ly/ayevdi-sfrom-init -O${ayesh} -q && . ${ayesh}'
+  echo ""
+  exit
+fi
+# AYESEC:STATUTORY_HEADER_COMPLETED
+# AYESEC:PREV_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+
+# AyeHandSum - Makes Deeds HandSum! (TM)
+
+# Inspired by the Open Hand Monument, Chandigarh, India
+# Ref: https://en.wikipedia.org/wiki/Open_Hand_Monument
+
+# Disclaimer: This is intended to be an "Artful SHA Encoding" with
+# Unicode hand and arm related emojis. We have tried our best
+# to leave out a few emojis that we felt were offensive. However,
+# given the complexity of cross cultural glyph interpretation,
+# it is very likely that we may have missed out a few more that
+# could be considered offensive in other cultures. We strongly
+# urge you to bring such cultural issues to our notice. Ideally,
+# a small write-up or pointer to an easily understandable article
+# on the topic will help our volunteers understand the cultural
+# context and make modifications.
+
+# Disclaimer: Dropping any specific hand or arm oriented symbol
+# that may be available in Unicode is merely coincidental and
+# an expression of our creative freedom. The appearance of any
+# sequence of symbols in this file or in the output generated,
+# by appropriately executing this file as a set of computer 
+# instructions, that have any relation to any individual, event,
+# or any entity is merely coincidental with a mathematical
+# mapping to the provided input, and is not intended to hurt the
+# feelings, emotions or sentiments of any individual or group.
+
+# Legal notice: The algorithm, mechanism, design used in this software,
+# are covered under multiple pending patent applications by the auhtors.
+# The release of this software does not constiture public disclosure and
+# the reader is expeced to
+
+# Legal notice: All issues must be logged on the online issue tracking
+# systems made available through the original point of distribution.
+# We cannot track replica repositories as it is simply not feasible
+# for us to track all such replicas or redistributions. Owing to
+# resource constraints we are not able to provide any timeline to
+# the expected time needed for providing a resolution. If the original
+# point of distribution of this software is not traceable, or trackable,
+# or otherwise available, then any and all licenses granted stand revoked
+# and the user is not allowed to use, modify or distribute this software
+# with immediate effect.
+
+# Legal notice: Where the output on a given input is known to be offensive,
+# this software must not be used on such inputd in original or derivative
+# distribution form unless the offensive output is eliminated from the range
+# of possible outputs of the original distribution. For each distirbution,
+# each successive derivative must oblige this clause by propagating modifications
+# made for eliminating offensive output back to the previous distribution.
+
+# Legal notice: AyeHandSum and AyeHandCode are claimed as trademarks
+# or business marks by Abhishek Choudhary. Modified distributions must not
+# use these marks or names for the distribution, and any similar names or
+# marks such as handsum or handcode which may be in use or in vogue in
+# contexts otherwise, are also specifically prohibited from being applied
+# to such modified distributions. We claim and reserve the right to apply
+# any combinations of words handsome, handsum, and handcode, including
+# the root words themselves to any derivative of this software, and 
+# therefore derivatives are not allowed to be distributed using any
+# marks or names composed, or otherwise derived from the specific words.
+
+# Legal notice: The glyphs shown here with a single finger held
+# out do not show the offensive finger jesture on our systems and
+# consist of index finger (second digit) or the thumb extended.
+# This software may not be downloaded, installed, executed or
+# otherwise utilized or accessed on systems here this condition
+# cannot be guaranteed. Any clauses not applicable under the laws of
+# the land are to be considered deleted from the terms of the license
+# agreement, without impact on the remaining clauses, and all the
+# good standing clauses, applicable under the law of the land, must be
+# read together along with all the good standing, and applicable,
+# notices and disclaimers given herein, at the original source of the
+# software, along with the terms and conditions applicable to registered
+# and unregistered users at https://ayeai.xyz
+
+# Disclaimer: The name AyeHandSum is phonetically similar to the
+# adjective handsome in the current form of the English language and may
+# be used to denote non-gender neutral features. This is absolutely
+# not the intended connotation of the invented word AyeHandSum used
+# in the naming of this software and the human hand is a symbol of all
+# the goodness of hard working socially responsible individuals,
+# without any relation to gender (MFLGBTQ+) - that, as such, is the personal
+# opinion of the original authors and the connotation must be interpreted
+# to remain gender neutral in all derivatives. We strongly believe that 
+# "the hands that rock the cradle are the hands that SHAPE the world".
+# (After William Ross Wallace)
+# Ref: https://en.wikipedia.org/wiki/The_Hand_That_Rocks_the_Cradle_(poem)
+#
+# Our translation of the phrase in Hindi -
+# हाथ वो जो झूला झुलाएं, विश्व को स्वर्णिम वही बनाएं (TM)
+
+# Disclaimer: The connotation to handsome in the formation of AyeHandSum
+# is not about physical beauty but about the beauty of the inner self.
+# As for physical beauty we strongly believe that its purely contextual
+# as in the words of Lord Byron -
+# One shade the more, one ray the less, had half impaired the nameless grace.
+#
+# And, SINCE,
+# Beauty lies in the eyes of the beholder, and the deeds of the individual.
+# THEREFORE,
+# Lets make our deeds handsome(TM)
+
+# Ref: https://en.wikipedia.org/wiki/Deed
+
+# Disclaimer: All clauses of this file must be treated as part of the
+# original license (AyeAI SPL) under which this software has been 
+# originally distributed and derivatives or distributions are not
+# allowed to modify any terms or conditions, or clauses, or the license
+# under which this software has been distributed. All disputes are subject
+# to the jurisdiction of courts in Hyderabad, Telangana, India.
+
+# Disclaimer: We have dropped the hand symbol related to begging as we
+# believe the glyph goes against our ethos and philosophy. A society that
+# cannot help its citizens in need has a long way to go towards achieving
+# its true potential. This is in no way a stand against philanthropy and we
+# empathize with individuals in need. There is nothing wrong as per
+# our understanding and cultural context in asking for help, while helping
+# a fellow human in need is the greatest deed of kindness. This is in
+# no way an opinion for or against the beliefs of individuals and
+# organizations that believe in the inclusion of the glyph and they may
+# do so in their derivatives of this software, subject to the other clauses
+# of the license under which these software have been distributed. The exclusion
+# of the glyph is merely an "artistic expression of our belief" that the NEED for
+# begging must be eliminated through concerted effort, and if it must remain
+# then it must be so for us as humans to beg to be of use to others and the
+# society towards greater glory for humankind on Earth and beyond. 
+
+# Quote: Condemn none: if you can stretch out a helping hand, do so.
+# If you cannot, fold your hands, bless your brothers, and let them go their own way.
+# - by Swami Vivekananda
+# Unquote:
+
+# Output a table like one given below and encode stdin SHA
+# 🖖	🖖🏽	🖖🏿	🖖🏼	🖖🏻	🖖🏾
+# 🖐️	🖐️🏽	🖐️🏿	🖐️🏼	🖐️🏻	🖐️🏾
+# ✋	✋🏽	✋🏿	✋🏼	✋🏻	✋🏾
+# 🤚	🤚🏽	🤚🏿	🤚🏼	🤚🏻	🤚🏾
+# 🤘	🤘🏽	🤘🏿	🤘🏼	🤘🏻	🤘🏾
+# 🤟	🤟🏽	🤟🏿	🤟🏼	🤟🏻	🤟🏾
+# 🤙	🤙🏽	🤙🏿	🤙🏼	🤙🏻	🤙🏾
+# 👌	👌🏽	👌🏿	👌🏼	👌🏻	👌🏾
+# ✌️	✌️🏽	✌️🏿	✌️🏼	✌️🏻	✌️🏾
+# 🤞	🤞🏽	🤞🏿	🤞🏼	🤞🏻	🤞🏾
+# ☝️	☝️🏽	☝️🏿	☝️🏼	☝️🏻	☝️🏾
+# 👍	👍🏽	👍🏿	👍🏼	👍🏻	👍🏾
+# 👎	👎🏽	👎🏿	👎🏼	👎🏻	👎🏾
+# 👆	👆🏽	👆🏿	👆🏼	👆🏻	👆🏾
+# 👇	👇🏽	👇🏿	👇🏼	👇🏻	👇🏾
+# 👈	👈🏽	👈🏿	👈🏼	👈🏻	👈🏾
+# 👉	👉🏽	👉🏿	👉🏼	👉🏻	👉🏾
+# ✊	✊🏽	✊🏿	✊🏼	✊🏻	✊🏾
+# 👊	👊🏽	👊🏿	👊🏼	👊🏻	👊🏾
+# 🤛	🤛🏽	🤛🏿	🤛🏼	🤛🏻	🤛🏾
+# 🤜	🤜🏽	🤜🏿	🤜🏼	🤜🏻	🤜🏾
+# 👋	👋🏽	👋🏿	👋🏼	👋🏻	👋🏾
+# 👐	👐🏽	👐🏿	👐🏼	👐🏻	👐🏾
+# 👏	👏🏽	👏🏿	👏🏼	👏🏻	👏🏾
+# 🙌	🙌🏽	🙌🏿	🙌🏼	🙌🏻	🙌🏾
+# 🤝	🤝🏽	🤝🏿	🤝🏼	🤝🏻	🤝🏾
+# 💪	💪🏽	💪🏿	💪🏼	💪🏻	💪🏾
+# 🤳	🤳🏽	🤳🏿	🤳🏼	🤳🏻	🤳🏾
+# ✍️	✍️🏽	✍️🏿	✍️🏼	✍️🏻	✍️🏾
+# 🙏	🙏🏽	🙏🏿	🙏🏼	🙏🏻	🙏🏾
+# 🙇	🙇🏽	🙇🏿	🙇🏼	🙇🏻	🙇🏾
+# 🙋	🙋🏽	🙋🏿	🙋🏼	🙋🏻	🙋🏾
+# 🤷	🤷🏽	🤷🏿	🤷🏼	🤷🏻	🤷🏾
+# 🙅	🙅🏽	🙅🏿	🙅🏼	🙅🏻	🙅🏾
+# 🙆	🙆🏽	🙆🏿	🙆🏼	🙆🏻	🙆🏾
+# 🤸	🤸🏽	🤸🏿	🤸🏼	🤸🏻	🤸🏾
+# 🤾	🤾🏽	🤾🏿	🤾🏼	🤾🏻	🤾🏾
+
+# Note: How about calling this "The Table of HandSum Unity"?
+
+# Examples:
+# echo abhishek | sourcefrom https://bit.ly/ayehandsum
+# 🖖🤾🏿🙅🏿🤞🤾🏽👆🏻🙌🏿👐🏽🤷🏾👏🏿✌️🏾🤾🤾🏼✊🏻🤘🏽🤷🏾🙅🏻✌️🏿🤚🏻🤷🏻🤾✋🏾🙇🏼🤷🏾🙅🤞👊🤙🙅🤝🏾🤳🏽🖐️🏻🙆💪🏿✊🏻🤾🏻🖖🤸🏾
+#
+# echo Abhishek Choudhary | sourcefrom https://bit.ly/ayehandsum
+# 🤸🏻🙅👐🏾🖐️🏼🤸🏽🤜🏿🤟🏽🙏🏽🤾🏿👎🏻👊🏽🙅🏻🙅🏻🙋🏿✊🙅🏿🙆🏾👍🏾🤜🏽🙌🏿🤾🏼🙇🏾✍️🤸🏻🙆🏽🤸🏿👆🏼🤸🏽🙅🏽👐🏾🙇🏼🤾🏻🙆🏻👍🏼🤜👊🏾🖖🙆🏼
+#
+# echo Twinkle Twinkle Little Star | sourcefrom https://bit.ly/ayehandsum
+# 🙆🤛🏻👐👌🏽🤾🏽👆🏼🤷🏿🤘🏿🤸🤜🏻✍️🏼👎🏽🙅👍🙇🏼👐🏿🤸🏻☝️🙅🏾🙌🙅🏻🙅🏽👊🏽✍️🏽🙆🏻👋🏿🙌🏼👐🏿🤸🏻🤷🏼👌🏽✋🏾🙅🏽👎🏻✌️🏾👋🏻🖖🙆🏾
+#
+# echo Twinkle Twinkle Little Stas | sourcefrom https://bit.ly/ayehandsum
+# 🙆🤚🏿🤾🏼🤳🏽🤷🏾👊🏼🙌🏼👐🏼🤸🤜🏿🤳🏿🤘🏿🤾🙇🏿🤳🏻✌️🏻🙅🏽👏🏻🤝🏿🤚🤸🏿🤘👋🏿👋🤸🏻👏🏻🖐️🏽🤝🏾🙆🏻👐🏾✌️🏾🙇🏿🙆🏾🤷🏿🤙🏽👎🏾🖖🤸
+#
+# echo हाथ वो जो झूला झुलाएं, विश्व को स्वर्णिम वही बनाएं | sourcefrom https://bit.ly/ayehandsum
+# 🤸🏻🙇🏼🖖🏻👆🤾🏻🤳🏽💪🏽🤘🙅🏽👍🏿🤜🏿👋🏻🤸🤜🏻🤸🏼👉🏾🙅🏽🙌🏻🤞🏽🤞🏻🤾🏻👌🙏🏼🙏🏿🙆🏿👋🏾🙋🏾👆🏻🤾🏽🤙🏾✊🏿👍🤸🏿✍️🏼🤚🏾🙅🏻🖖🙆🏼
+
+# Note: We have specifically included the Vulcan salute, as we believe that
+# it is probabilistically naive to presume we are alone in the vastness of the
+# universe, and whenever that first contact happens human hands and their
+# glyphical representations are most likely to provide the first non ambiguous
+# means of information interchange. Hopefully, AyeHandSum or its derivatives
+# will have a positive role to play - so help us Mr Spock! 🖖 LLAP
+
+f1="🏽 🏿 🏼 🏻 🏾"
+# Note: The color modifiers must always be maintained in a random pattern, to
+# represent the camaraderie of all humans irrespective of race, colour, religion,
+# national origin, sex, physical or mental disability, or age.
+
+hands="🖖 🖐️ ✋ 🤚 🤘 🤟 🤙 👌 ✌️ 🤞 ☝️ 👍 👎 👆 👇 👈 👉 ✊ 👊 🤛 🤜 👋 👐 👏 🙌 🤝"
+hands=${hands}" 💪 🤳 ✍️ 🙏 🙇 🙋 🤷 🙅 🙆 🤸 🤾"
+
+# TODO: Consider adding 🧤 🤔 🤗 🤫 🤭 🙈 🙉 🙊
+# Note: Shouldn't these emojis have color modifiers too?
+
+# TODO: Include sign language expressions
+
+# TODO: Optimize the sequence generation (its too clumsy right now!)
+# Options:
+#  1a. Parse the generated table - but that reduces flexibility
+#  1b. Provide an update function to update the table (this can be done behind
+#      the scenes in many ways including tee'ing off a function to compare the
+#      table to a freshly generated one at intervals and logging the result
+#
+#  2. Use a better algorithm - basically a trade-off between flexibility and performance
+# TODOEND:
+
+# Symbol maths:
+# Symbols (37) * Shades (6) = 222
+# Output of standard SHA: Base 16
+# Required output for AyeHandSum: Base 222
+
+# Note: Use (total_symbols - 1) as base
+# Note: Use the last symbol as filler for missing columns on the MSB side
+
+base=$( for n in ${hands}
+        do
+          printf "# ${n}"
+          for m in ${f1}
+          do
+            printf "\t${n}${m}"
+          done
+          echo ""
+        done | tee >(cat >/dev/stderr) >(tr -d '#') >/dev/null
+      ) 
+
+# TODO: Add / modify code for the verification behavior of SHAs
+# TODO: Capture the AyeHandSum transformation as a translation function
+# Note: Such a transfer function may be called
+#     "The Formula of HandSum Unity"
+
+# Dependencies :-
+# ubuntu (18.04+): sudo apt install libdigest-sha3-perl
+
+# Other useful utils :-
+# ifne: Part of moreutils package - print iff stdin is empty (ifne -n)
+
+
+# Note: The links given below are intended to provide a reference to
+# developers for hardening these software. It is expected that the
+# developers on this project will exercise utmost ethical standards
+# and not indulge in unlawful practices. All activity records available
+# will be shared with authorities on demand.
+
+# Disclaimer: All copyrights, trademarks and other intellectual property
+# of 3rd parties are acknowledged.
+
+# Further reading :-
+# Note: The following links do not imply endorsement,
+# use, or implementation and are for purely academic 
+# reference only
+# Ref: https://keccak.team/
+# Perf: https://keccak.team/sw_performance.html
+# Ref: https://eprint.iacr.org/2018/1012.pdf
+# Ref: https://joeyh.name/code/moreutils/
+# Note: Consider vipe for sf / pt
+# Ref: https://joeyh.name/code/
+# Ref: https://www.openhub.net/accounts/obonac
+# Ref: https://www.openhub.net/tools
+# Ref: https://www.openhub.net/languages
+# Ref: https://www.businesswire.com/news/home/20160406005160/en/Black-Duck-Releases-Latest-Version-Hub-Open
+# Ref: https://security.blogoverflow.com/2013/09/about-secure-password-hashing/
+# Note: Lookup rainbow tables
+# Ref: https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#Known_attacks
+# Note: Areas for hardening against attacks
+# Ref: https://en.wikipedia.org/wiki/AES_implementations
+# Ref: https://en.wikipedia.org/wiki/Alice_and_Bob
+# Ref: https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
+# Ref: https://en.wikipedia.org/wiki/RSA_Security
+# Ref: https://en.wikipedia.org/wiki/Kleptography
+# Note: Very important to harden against these
+# Ref: https://en.wikipedia.org/wiki/Birthday_problem
+# Note: Beyond the pigeonholes (probability < 1 but significant)
+# Ref: https://en.wikipedia.org/wiki/Category:Probability_theory_paradoxes
+# Ref: https://en.wikipedia.org/wiki/Category:Mathematics_paradoxes
+# Ref: https://en.wikipedia.org/wiki/0.999...#Skepticism_in_education
+# Ref: https://en.wikipedia.org/wiki/0.999...#Impossibility_of_unique_representation
+# Note: Try to correlate to ICNS
+# Ref: https://en.wikipedia.org/wiki/Real_number
+# Ref: http://homepages.warwick.ac.uk/staff/David.Tall/themes/limits-infinity.html
+# Ref: https://en.wikipedia.org/wiki/Hyperreal_number
+# Ref: https://en.wikipedia.org/wiki/Security_protocol_notation
+# Ref: https://en.wikipedia.org/wiki/Cryptovirology
+# Ref: https://en.wikipedia.org/wiki/Security_hacker
+# Ref: https://en.wikipedia.org/wiki/Pipeline_(Unix)#Network_pipes
+# Ref: https://en.wikipedia.org/wiki/List_of_Unix_commands
+# Ref: https://en.wikipedia.org/wiki/Category:Unix_SUS2008_utilities
+# Ref: https://en.wikipedia.org/wiki/Qsub
+# Ref: https://en.wikipedia.org/wiki/Slurm_Workload_Manager
+# Ref: http://lists.freedesktop.org/mailman/listinfo/polkit-devel
+# Ref: https://en.wikipedia.org/wiki/Mung_(computer_term)
+# Ref: https://en.wikipedia.org/wiki/Jargon_File
+# Ref: https://en.wikipedia.org/wiki/TORQUE
+# Ref: https://en.wikipedia.org/wiki/Open_Source_Cluster_Application_Resources
+# Ref: https://en.wikipedia.org/wiki/Beowulf_cluster
+# Ref: https://en.wikipedia.org/wiki/Parallel_computing
+# Ref: https://en.wikipedia.org/wiki/List_of_important_publications_in_concurrent,_parallel,_and_distributed_computing
+# Ref: https://en.wikipedia.org/wiki/Platform_LSF
+# Ref: https://github.com/IBMSpectrumComputing/lsf-python-api
+# Ref: https://en.wikipedia.org/wiki/Netcat
+# Ref: https://en.wikipedia.org/wiki/Nmap
+# Ref: https://en.wikipedia.org/wiki/Composite_number
+# Ref: https://en.wikipedia.org/wiki/Packet_Sender
+# Ref: https://en.wikipedia.org/wiki/Banner_grabbing
+# Ref: https://en.wikipedia.org/wiki/Shodan_(website)
+# Ref: https://en.wikipedia.org/wiki/Botnet
+# Ref: https://en.wikipedia.org/wiki/Category:Software_that_uses_GStreamer
+# Ref: https://en.wikipedia.org/wiki/Aiyara_cluster
+# Ref: https://en.wikipedia.org/wiki/Apache_Hadoop
+# Ref: https://en.wikipedia.org/wiki/Apache_Spark
+# Ref: https://en.wikipedia.org/wiki/Big_data
+# Ref: https://en.wikipedia.org/wiki/List_of_big_data_companies
+# Ref: https://en.wikipedia.org/wiki/List_of_companies_involved_in_quantum_computing_or_communication
+# Ref: https://en.wikipedia.org/wiki/Category:Quantum_computing
+# Ref: https://en.wikipedia.org/wiki/CRVS_(Civil_Registration_and_Vital_Statistic)
+# Ref: https://en.wikipedia.org/wiki/Quantum_programming
+# Ref: https://en.wikipedia.org/wiki/Quantum_information_science
+# Ref: https://en.wikipedia.org/wiki/Quantum_technology
+# Ref: https://en.wikipedia.org/wiki/Quantum_machine_learning
+# Ref: https://en.wikipedia.org/wiki/Quantum_algorithm_for_linear_systems_of_equations
+# Ref: https://en.wikipedia.org/wiki/Timeline_of_quantum_computing
+# Ref: https://en.wikipedia.org/wiki/Category:Quantum_information_scientists
+# Ref: https://en.wikipedia.org/wiki/List_of_general_science_and_technology_awards
+# Ref: http://manikvarma.org/
+# Ref: https://en.wikipedia.org/wiki/Apache_Hadoop
+# Ref: https://en.wikipedia.org/wiki/Coreboot
+# Ref: https://en.wikipedia.org/wiki/AI_Companies_of_India
+# Ref: https://en.wikipedia.org/wiki/Category:Artificial_intelligence
+# Ref: https://en.wikipedia.org/wiki/Competitions_and_prizes_in_artificial_intelligence
+# Ref: https://en.wikipedia.org/wiki/Category:Machine_learning
+# Ref: https://en.wikipedia.org/wiki/Fastra_II
+# Ref: https://en.wikipedia.org/wiki/Portable_Batch_System
+# Ref: https://en.wikipedia.org/wiki/List_of_distributed_computing_conferences
+# Ref: https://en.wikipedia.org/wiki/Job_scheduler#Batch_queuing_for_HPC_clusters
+# Ref: https://en.wikipedia.org/wiki/HTCondor
+# Ref: https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands
+# Ref: https://en.wikipedia.org/wiki/GNOME_Core_Applications
+# Ref: https://en.wikipedia.org/wiki/List_of_GNU_packages
+# Ref: https://en.wikipedia.org/wiki/List_of_KDE_applications
+# Ref: https://en.wikipedia.org/wiki/List_of_Unix_daemons
+# Ref: https://en.wikipedia.org/wiki/List_of_web_browsers_for_Unix_and_Unix-like_operating_systems
+# Ref: https://en.wikipedia.org/wiki/Unix_philosophy
+# Ref: https://en.wikipedia.org/wiki/Syslog
+# Ref: https://www.openhub.net/languages/compare
+# Ref: https://blog.openhub.net/about-badges/
+# Ref: https://en.wikipedia.org/wiki/HackThisSite
+# Ref: https://en.wikipedia.org/wiki/Black_hat_(computer_security)
+# Ref: https://en.wikipedia.org/wiki/Subliminal_channel
+# Ref: https://en.wikipedia.org/wiki/Ransomware
+# Ref: https://en.wikipedia.org/wiki/Cipher_security_summary
+# Ref: https://en.wikipedia.org/wiki/Block_cipher
+# Ref: https://en.wikipedia.org/wiki/Chi-squared_test
+# Ref: https://en.wikipedia.org/wiki/Cryptanalysis
+# Ref: https://en.wikipedia.org/wiki/Salt_(cryptography)
+# Ref: https://en.wikipedia.org/wiki/Rainbow_table
+# Ref: https://en.wikipedia.org/wiki/Stream_cipher
+# Ref: https://en.wikipedia.org/wiki/Authenticated_encryption
+# Ref: https://en.wikipedia.org/wiki/Sponge_function
+# Ref: https://en.wikipedia.org/wiki/Federal_Information_Processing_Standards
+# Ref: https://en.wikipedia.org/wiki/Collision_attack
+# Ref: https://en.wikipedia.org/wiki/Preimage_attack
+# Ref: http://cr.yp.to/hash/quantumsha3-20101112.pdf
+# Ref: https://en.wikipedia.org/wiki/Bruce_Schneier
+# Ref: https://en.wikipedia.org/wiki/Avalanche_effect
+# Ref: https://en.wikipedia.org/wiki/DNS_spoofing
+# Ref: https://en.wikipedia.org/wiki/Encryption_software#Performance
+# Ref: https://en.wikipedia.org/wiki/Ethereum#Ether
+# Ref: https://github.com/ethereum/go-ethereum/wiki/Installing-Geth
+# Ref: https://en.wikipedia.org/wiki/Ethash
+# Ref: https://en.wikipedia.org/wiki/Cryptocurrency
+# Note: We do not support cryptocurrencies for transactions and these are in our systems for academic research only
+# Ref: https://en.wikipedia.org/wiki/List_of_cryptocurrencies
+# Ref: https://www.kaggle.com/
+# Note: Kaggle offers free GPUs as of 8-Feb-2020 (30hrs quota)
+# Ref: https://www.kaggle.com/notebooks
+# Ref: https://www.kaggle.com/competitions
+# Ref: https://www.kaggle.com/datasets
+# Ref: https://www.kaggle.com/learn/overview
+# Ref: https://linux.die.net/man/1/tpipe
+# Ref: https://en.wikipedia.org/wiki/Util-linux
+# Ref: https://ieeexplore.ieee.org/document/7467359
+# Ref: https://en.wikipedia.org/wiki/AES_instruction_set
+# Ref: https://en.wikipedia.org/wiki/List_of_free_and_open-source_software_packages
+# Ref: https://en.wikipedia.org/wiki/List_of_open-source_health_software
+# Ref: https://en.wikipedia.org/wiki/Secure_Hash_Algorithms
+# Ref: https://en.wikipedia.org/wiki/RadioGat%C3%BAn
+# Ref: https://en.wikipedia.org/wiki/Google_Code_Search
+# Ref: https://en.wikipedia.org/wiki/Category:Code_search_engines
+# Ref: https://en.wikipedia.org/wiki/Google_Kythe
+# Ref: https://en.wikipedia.org/wiki/Language_Server_Protocol
+# Ref: https://www.krugle.com/
+# Ref: https://www.merobase.com/
+# Ref: https://en.wikipedia.org/wiki/OpenGrok
+# Ref: https://en.wikipedia.org/wiki/Koders
+# Ref: https://en.wikipedia.org/wiki/Category:Applied_machine_learning
+# Ref: https://en.wikipedia.org/wiki/Google_Brain
+# Ref: https://research.google/teams/brain/
+# Ref: https://en.wikipedia.org/wiki/Category:Forecasting_competitions
+# Ref: https://en.wikipedia.org/wiki/Category:Analytics_companies
+# Ref: https://en.wikipedia.org/wiki/Category:Crowdsourcing
+# Ref: https://en.wikipedia.org/wiki/Category:Free_software_websites
+# Ref: https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%A8%E0%A4%BE%E0%A4%B0%E0%A4%BE%E0%A4%AF%E0%A4%AE
+# Ref: https://en.wikipedia.org/wiki/Category:Software_metrics
+# Ref: https://en.wikipedia.org/wiki/Category:American_review_websites
+# Ref: https://en.wikipedia.org/wiki/Category:Review_websites
+# Ref: http://hackage.haskell.org/package/reactive-banana-automation
+# Ref: https://blockgeeks.com/guides/ethereum/
+# Ref: https://medium.com/@eplt/5-minutes-to-install-hyperledger-fabric-v1-3-on-ubuntu-18-04-digitalocean-a06541a2ba45
+# Ref: https://en.wikipedia.org/wiki/Blockchain
+# Ref: https://en.wikipedia.org/wiki/Byzantine_fault
+# Ref: https://en.wikipedia.org/wiki/Validator
+# Ref: https://en.wikipedia.org/wiki/Economics_of_digitization
+# Ref: https://en.wikipedia.org/wiki/Distributed_ledger
+# Ref: https://ubuntu.com/blog/tag/blockchain
+# Ref: https://ubuntu.com/blog/iota-iot-revolutionized-with-a-ledger
+# Ref: https://steemit.com/ethereum/@nphacker/setting-up-and-running-a-private-ethereum-blockchain-on-ubuntu
+# Ref: https://developers.instamed.com/healthcare-payments-blockchain/install-blockchain-on-linux/
+# Ref: https://medium.com/@girishkr/private-neo-blockchain-on-ubuntu-server-16-04-ccdda6d94283
+# Ref: https://www.bitdegree.org/tutorials/neo-vs-ethereum/
+# Ref: https://coinsutra.com/neo-vs-ethereum-differences/
+# Ref: https://bitcoin.org/en/full-node
+# Ref: https://techaroha.com/step-step-guide-install-hyperledger-ubuntulinux/
+# Ref: https://tutorials.bamboozle.me/knowledge-base/build-a-private-ethereum-blockchain-on-ubuntu-16-04/
+# Ref: https://www.trufflesuite.com/ganache
+# Ref: https://www.apps.slb.com/cmd/index.aspx
+# Ref: https://en.wikipedia.org/wiki/Morse_code_mnemonics
+# Ref: https://iancoleman.io/bip39/
+# Ref: https://www.uniwebb.com/blog/post/how-to-install-hyperledger-fabric-14-on-ubuntu-1804-lts/1766/
+
+# TODO: Organize the refs by category
+
+# CEMs related :-
+# Note: Neural correlates of number theory (and, numbers in general)
+# Ref: https://en.wikipedia.org/wiki/Parallel_computing#Biological_brain_as_massively_parallel_computer
+# Ref: https://en.wikipedia.org/wiki/Coincidence_detection_in_neurobiology
+# Ref: https://en.wikipedia.org/wiki/Long-term_depression
+# Ref: https://en.wikipedia.org/wiki/Synchronicity
+# Ref: https://en.wikipedia.org/wiki/Pareidolia
+# Ref: https://en.wikipedia.org/wiki/Apophenia
+# Ref: https://en.wikipedia.org/wiki/Neuroethology
+# Ref: https://en.wikipedia.org/wiki/Hebbian_theory
+# Ref: https://en.wikipedia.org/wiki/Mirror_neuron#In_humans
+# Ref: https://en.wikipedia.org/wiki/Lists_of_important_publications_in_science
+# Ref: https://en.wikipedia.org/wiki/Gastrobot
+# Ref: https://en.wikipedia.org/wiki/Molecular_nanotechnology
+# Ref: https://en.wikipedia.org/wiki/Reductionism
+# Ref: https://en.wikipedia.org/wiki/Molecular_assembler
+# Ref: https://en.wikipedia.org/wiki/Quantum_supremacy
+# Ref: https://en.wikipedia.org/wiki/List_of_quantum_processors
+# Ref: https://en.wikipedia.org/wiki/C._N._R._Rao
+# Ref: https://en.wikipedia.org/wiki/The_Road_to_Reality
+# Ref: https://en.wikipedia.org/wiki/Category:Cognitive_science
+
+# Digital Health related :-
+# Ref: https://github.com/biolab-unige/nifti2dicom
+# Ref: https://en.wikipedia.org/wiki/Category:Health_information_technology_companies
+
+# AyeAI links :-
+# Ref: https://www.openhub.net/p/ayevdi
+# Ref: https://www.openhub.net/accounts/obonac
