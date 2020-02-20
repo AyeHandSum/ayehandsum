@@ -1,10 +1,31 @@
-base=""
-base=${base}" 🙆 🙁 🙂 🙃 🙄 😀 😁 😂 😃 😄 😅 😆 😇 😈 😉 😊"
-base=${base}" 😋 😌 😍 😎 😏 😐 😑 😒 😓 😔 😕 😖 😗 😘 😙 😚"
-base=${base}" 😛 😜 😝 😞 😟 😠 😡 😢 😣 😤 😥 😦 😧 😨 😩 😪"
-base=${base}" 😫 😬 😭 😮 😯 😰 😱 😲 😳 😴 😵 😶 😷 😸 😹 😺"
+# AYESEC:POST_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+# AYESEC:STATUTORY_HEADER
+if [ "${ayevdi_sourcefrom}" != "${HOME}/.ayevdi/ayevdi-sourcefrom" ]
+then
+  echo "AyeVDI by https://ayeai.xyz"
+  echo "Copyright (C) 2019-2020 Abhishek Choudhary, Dr Srija Katta"
+  echo ""
+  echo "NO WARRANTY, and ZERO LIABILITY (Limited to INR 1/- only)"
+  echo "Further usage of these software, artifacts or methods"
+  echo "are subject to the 'latest' license agreement avaialble at"
+  echo "https://raw.githubusercontent.com/ayeai/spl/master/LICENSE"
+  echo ""
+  echo "AyeVDI not activated. Please use the following command to"
+  echo "activate AyeVDI"
+  echo '  ayesh=$(tempfile) && wget https://bit.ly/ayevdi-sfrom-init -O${ayesh} -q && . ${ayesh}'
+  echo ""
+  exit
+fi
+# AYESEC:STATUTORY_HEADER_COMPLETED
+# AYESEC:PREV_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
 
-syms=" 🍉 🍊 🍋 🍌 🍍 🍎 🍏 🍐 🍑 🍒 🍓 🍔 🍕 🍖 🍞 🍘"
+__codon_syms=""
+__codon_syms=${__codon_syms}" 🙆 🙁 🙂 🙃 🙄 😀 😁 😂 😃 😄 😅 😆 😇 😈 😉 😊"
+__codon_syms=${__codon_syms}" 😋 😌 😍 😎 😏 😐 😑 😒 😓 😔 😕 😖 😗 😘 😙 😚"
+__codon_syms=${__codon_syms}" 😛 😜 😝 😞 😟 😠 😡 😢 😣 😤 😥 😦 😧 😨 😩 😪"
+__codon_syms=${__codon_syms}" 😫 😬 😭 😮 😯 😰 😱 😲 😳 😴 😵 😶 😷 😸 😹 😺"
+
+__basepair_syms=" 🍉 🍊 🍋 🍌 🍍 🍎 🍏 🍐 🍑 🍒 🍓 🍔 🍕 🍖 🍞 🍘"
 
 cd="T C A G"
 b2=$(
@@ -17,8 +38,8 @@ do
 done
 )
 
-b2sym=$(s=0; for n in ${syms}; do s=$(expr ${s} + 1);echo ${b2} | awk -vn=${n} -vs=${s} '{printf "s/" $s "/" n "/g; "}'; done)
-b2dsym=$(s=0; for n in ${syms}; do s=$(expr ${s} + 1);echo ${b2} | awk -vn=${n} -vs=${s} '{printf "s/" n "/" $s "/g; "}'; done)
+b2sym=$(s=0; for n in ${__basepair_syms}; do s=$(expr ${s} + 1);echo ${b2} | awk -vn=${n} -vs=${s} '{printf "s/" $s "/" n "/g; "}'; done)
+b2dsym=$(s=0; for n in ${__basepair_syms}; do s=$(expr ${s} + 1);echo ${b2} | awk -vn=${n} -vs=${s} '{printf "s/" n "/" $s "/g; "}'; done)
 
 codons=$(
 for m in ${b2}
@@ -30,10 +51,16 @@ do
 done
 )
 
-genemo=$(s=0; for n in ${base}; do s=$(expr ${s} + 1);echo ${codons} | awk -vn=${n} -vs=${s} '{printf "s/" $s "/" n "/g; "}'; done)
-gendemo=$(s=0; for n in ${base}; do s=$(expr ${s} + 1);echo ${codons} | awk -vn=${n} -vs=${s} '{printf "s/" n "/" $s "/g; "}'; done)
+genemo=$(s=0; for n in ${__codon_syms}; do s=$(expr ${s} + 1);echo ${codons} | awk -vn=${n} -vs=${s} '{printf "s/" $s "/" n "/g; "}'; done)
+gendemo=$(s=0; for n in ${__codon_syms}; do s=$(expr ${s} + 1);echo ${codons} | awk -vn=${n} -vs=${s} '{printf "s/" n "/" $s "/g; "}'; done)
 
-echo ${codons} | sed "${genemo}" | sed "${gendemo}"
+# Note: The following base defines the epigraphical base used elsewhere
+base=${codons}
+
+# TODO: Create RLE scripts with options from below
+
+# TODO: Add the following line to TEST and VERBOSE
+# echo ${codons} | sed "${genemo}" | sed "${gendemo}"
 
 # Cascaded RLE 3->2->1
 #. ~/ayegensum; echo TTT TTT TTT AAA ACG GGG GGG | tr -d ' ' | sed 's/.\{3\}/& /g' | sed "${genemo}" | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf "]"s;s=0}p=$1}END{printf p;if(s>0)printf "]"s+1;}' | sed "${gendemo}" | tr -d ' ' | sed 's/[TCAG]\{2\}/& /g' | sed "${b2sym}" | sed 's/.\{1\}/& /g' | tr -s ' ' | tr ' ' '\n' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf ")"s;s=0}p=$1}END{printf p;if(s>0)printf ")"s+1;}' | sed "${b2dsym}" | tr -d ' \n' | sed 's/.\{1\}/&\n/g' | awk '{s+=1;if(p!=$1){printf p;if(s>1)printf s;s=0}p=$1}END{printf p;if(s>0)printf s+1;}'
