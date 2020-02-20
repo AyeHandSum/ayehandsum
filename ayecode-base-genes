@@ -56,6 +56,7 @@ gendemo=$(s=0; for n in ${__codon_syms}; do s=$(expr ${s} + 1);echo ${codons} | 
 
 # Note: The following base defines the epigraphical base used elsewhere
 base=${codons}
+ayecodefilter='tr -d "\n " | sed "s/.\{3\}/&\ /g"'
 
 # TODO: Create RLE scripts with options from below
 
