@@ -1,6 +1,6 @@
 # AYESEC:POST_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
 # AYESEC:STATUTORY_HEADER
-if [ "${ayevdi_sourcefrom}" != "${HOME}/.ayevdi/ayevdi-sourcefrom" ]
+if [ "${ayevdi_wget -O- -q}" != "${HOME}/.ayevdi/ayevdi-wget -O- -q" ]
 then
   echo "AyeVDI by https://ayeai.xyz"
   echo "Copyright (C) 2019-2020 Abhishek Choudhary, Dr Srija Katta"
@@ -36,13 +36,13 @@ fi
        }'
 ) |\
 sed 's/^/                                         /g'
-sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -39 | tail -16 | cut -c3-49
+wget -O- -q https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -39 | tail -16 | cut -c3-49
 for n in {1..2}
 do 
   sleep 0.2
-  echo -e "\e[17A"; sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -39 | tail -16 | cut -c3-49 | sed 's/<\\____\/>/<======>/g; s/  o  /=====/g'
+  echo -e "\e[17A"; wget -O- -q https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -39 | tail -16 | cut -c3-49 | sed 's/<\\____\/>/<======>/g; s/  o  /=====/g'
   sleep 0.1 
-  echo -e "\e[17A"; sourcefrom https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -39 | tail -16 | cut -c3-49
+  echo -e "\e[17A"; wget -O- -q https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -39 | tail -16 | cut -c3-49
 done
 
 
