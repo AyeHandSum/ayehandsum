@@ -28,7 +28,8 @@ tmpscript=$(tempfile)
 (
   echo ${base}
 ) |\
-( cntr=$(expr ${symbols} - 1)
+(
+  cntr=$(expr ${symbols} - 1)
   for m in $(cat | tr -d '#\n')
   do
     printf "s/${m}/%${codewidth}d/g;\n" ${cntr} |\
@@ -40,15 +41,20 @@ tmpscript=$(tempfile)
     fi
   done
   echo ""
-)>${tmpscript}
+) |\
+(
+  tr ' ' '\n' |\
+  sort -t'/' -rk3 |\
+  awk -F'/' '{l=length($2); if(l>0) print l"/"$0}' |\
+  sort -rn |\
+  cut -d'/' -f2- |\
+  tr '\n' ' ' |\
+  tr -s ' '
+) >${tmpscript}
 
 csum=$( cat |\
         (bash -c "${ayecodefilter}" ) |\
-        sed "$( cat ${tmpscript} |\
-                sort -t'/' -k3 |\
-                tr '\n' ' ' |\
-                tr -s ' '
-              )" |\
+        sed "$( cat ${tmpscript} )" |\
         sed "s/[0-9]\{${codewidth}\}/& /g"
       )
 echo ${csum} |\
