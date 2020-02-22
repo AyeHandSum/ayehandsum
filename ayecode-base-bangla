@@ -1,0 +1,41 @@
+# AYESEC:POST_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+# AYESEC:STATUTORY_HEADER
+if [ "${ayevdi_sourcefrom}" != "${HOME}/.ayevdi/ayevdi-sourcefrom" ]
+then
+  echo "AyeVDI by https://ayeai.xyz"
+  echo "Copyright (C) 2019-2020 Abhishek Choudhary, Dr Srija Katta"
+  echo ""
+  echo "NO WARRANTY, and ZERO LIABILITY (Limited to INR 1/- only)"
+  echo "Further usage of these software, artifacts or methods"
+  echo "are subject to the 'latest' license agreement avaialble at"
+  echo "https://raw.githubusercontent.com/ayeai/spl/master/LICENSE"
+  echo ""
+  echo "AyeVDI not activated. Please use the following command to"
+  echo "activate AyeVDI"
+  echo '  ayesh=$(tempfile) && wget https://bit.ly/ayevdi-sfrom-init -O${ayesh} -q && . ${ayesh}'
+  echo ""
+  exit
+fi
+# AYESEC:STATUTORY_HEADER_COMPLETED
+# AYESEC:PREV_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+# হ্রৈংনৌংব্রেহ্রোল্রূঃ হ্রৈংঝ্রৄঃরৌহৌক্ষিং ঃহ্রৄঃরাঃখ্রৈহ্রাঃদ্রুঃঘ্রূঃহ্রীংবাঃখৈংহ্রৌধ্রৄংআংহ্রিঃঘোখহৄঠঃৃংহৃঃঝ্রুচেংহ্রুশূঃল্রুংহ্রৄহেচ্রোঃহ্রুদ্রংজেঃহ্রিংত্রুংজ্রঃহ্রঃছিঃণংহৄংভ্রেংরেঃ
+
+# TODO: Derive Godelization rules __script_based on Panini's Ashtadhyayi
+# TODO: Use Romenagri intermediate stage to make it reversible
+
+export __script_base="ক খ গ ঘ চ ছ জ ঝ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম ল   শ স হ "
+export mux="}্র "
+export add__script_base="য র ক্ষ জ্ঞ "
+export mux2=" া  ি  ী  ু  ূ  ে  ৈ  ো  ৌ  ৃ ৄ "
+export add__script_base2="অ আ ই ঈ উ ঊ ঋ ঌ   এ ঐ   অ ও ঔ	" 
+export mux3="}ং"
+export mux4="}ঃ"
+export __script_base2=$(for n in ${__script_base}; do printf "${n} ${n}${mux}"; done)${add__script_base}
+export __script_base3=$(for n in ${__script_base2}; do printf "${n} "; for m in ${mux2}; do printf "${n}${m} "; done; done)${add__script_base2}
+export __script_base4=$(for n in ${__script_base3}; do printf "${n} ${n}${mux3} "; done | sed 's/}//g')
+export __script_base5=$(for n in ${__script_base3}; do printf "${n} "; for m in ${mux3} ${mux4}; do printf "${n}${m} "; done; done | sed 's/}//g')
+
+
+base=${__script_base5}
+
+# Ref: https://sa.wikisource.org/wiki/র্গঃ:েদাঙ্গানি
