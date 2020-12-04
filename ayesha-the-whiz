@@ -82,5 +82,5 @@ do
 done
 #
 echo -e "\e[18A";
-wget -O- -q https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -42 | tail -20 | cut -c3- | lolcat
+wget -O- -q https://raw.githubusercontent.com/ayehandsum/ayehandsum/master/ayesha-the-whiz | head -42 | tail -20 | cut -c3- | /usr/games/lolcat
 
