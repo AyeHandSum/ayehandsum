@@ -22,5 +22,6 @@ fi
 # Note: All codes must be space separated
 
 base=""
-base=${base}$(curl -s https://www.gutenberg.org/files/1400/1400-0.txt | sed 's/\. /\.\n/g' | tr -d '\r' | sort -u | tr ' ' '_' | tr '\n' ' ')
+base=${base}" and but otherwise else therefore since"
+base=${base}$(curl -s https://www.gutenberg.org/files/1400/1400-0.txt | sed 's/\. /\.\n/g' | tr -d '\r' | sort -u | tr ' ' '_' | awk 'BEGIN {s=0};/.*/ {s+=1; if (0 == (s % 23)) print; next; next;}' | tr '\n' ' ' )
 
