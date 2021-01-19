@@ -22,6 +22,6 @@ fi
 # Note: All codes must be space separated
 
 base=""
-base=${base}" Alas_ Lo_ Therefore_ Behold_"
+base=${base}" Also_ Therefore_ Besides_"
 base=${base}$(curl -s https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6173273/ | html2text | sed 's/\. /\.\n/g' | tr -d '\r' | sed 's/[^a-zA-Z0-9\ ]//g' | sort -u | tr ' ' '_' | awk 'BEGIN {s=0};/.*/ {s+=1; if (0 == (s % 23)) print; next; next;}' | tr '\n' ' ' | tr -s ' ' | sed 's/ /. /g') 
 
