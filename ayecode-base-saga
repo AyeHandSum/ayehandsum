@@ -1,0 +1,43 @@
+# AYESEC:POST_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+# AYESEC:STATUTORY_HEADER
+if [ "${ayevdi_sourcefrom}" != "${HOME}/.ayevdi/ayevdi-sourcefrom" ]
+then
+  echo "AyeVDI by https://ayeai.xyz"
+  echo "Copyright (C) 2019-2020 Abhishek Choudhary, Dr Srija Katta"
+  echo ""
+  echo "NO WARRANTY, and ZERO LIABILITY (Limited to INR 1/- only)"
+  echo "Further usage of these software, artifacts or methods"
+  echo "are subject to the 'latest' license agreement avaialble at"
+  echo "https://raw.githubusercontent.com/ayeai/spl/master/LICENSE"
+  echo ""
+  echo "AyeVDI not activated. Please use the following command to"
+  echo "activate AyeVDI"
+  echo '  ayesh=$(tempfile) && wget https://bit.ly/ayevdi-sfrom-init -O${ayesh} -q && . ${ayesh}'
+  echo ""
+  exit
+fi
+# AYESEC:STATUTORY_HEADER_COMPLETED
+# AYESEC:PREV_SHS('18 lines')=9da1fc9afc1b85e1e81e78a53f97d4436d886182eec170ddd6c78ec71e64113d9ade4fd1bf969ed5bbe62baed9a575d2b5e3ccdc0383c27eb7a4b6bc71965afe
+
+# Note: All codes must be space separated
+
+base=""
+base=${base}" a the this that"
+base=${base}" i me you he she they those them"
+base=${base}" my mine your whose our whom"
+base=${base}" yes no maybe good bad negative affirmative"
+base=${base}" here there everywhere anywhere"
+base=${base}" now then ever never"
+base=${base}" park garden mall street home building society"
+base=${base}" why what when how where which"
+base=${base}" if then else otherwise"
+base=${base}" is was will be can cannot"
+base=${base}" today tomorrow yesterday"
+base=${base}" before after above below near far left right"
+base=${base}" eat sleep drink walk play sing dance study"
+base=${base}" walk run jump fly sit stand"
+base=${base}" like hate"
+base=${base}" baby boy girl man woman elder"
+base=${base}" rice bread sauce pizza burger"
+base=${base}" cat dog cow horse"
+base=${base}" car ship helicopter"
