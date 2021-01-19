@@ -24,3 +24,4 @@ fi
 base=""
 base=${base}" and_ but_ otherwise_ else_ therefore_ since_"
 base=${base}$(curl -s https://www.gutenberg.org/files/1400/1400-0.txt | sed 's/\. /\.\n/g' | tr -d '\r' | sed 's/[^a-zA-Z0-9\ ]//g' | sort -u | tr ' ' '_' | awk 'BEGIN {s=0};/.*/ {s+=1; if (0 == (s % 23)) print; next; next;}' | tr '\n' ' ' | tr -s ' ' | sed 's/ /. /g') 
+
